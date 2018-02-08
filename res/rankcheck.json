@@ -1,0 +1,345 @@
+{
+	"rankcheck": {
+
+		// If set to true, displays a message on startup telling the user to start
+		// playing in order to see player information.
+		"showInitialInfoMessage": true,
+
+		// If set to true, ranking information will be downloaded for each player.
+		"loadLeaderboards": true,
+
+		// If set to true, country information will be downloaded for each player.
+		"loadCountries": true,
+
+		// Number of seconds to wait between reading lines of the network log file.
+		"diskReadInterval": 0.5,
+
+		// Framerate settings.
+		"framerate": {
+
+			// Frames per second to redraw RankCheck at while animations are playing
+			// or the window is being interacted with.
+			"focused": 60,
+
+			// Frames per second to redraw RankCheck at while no animations are playing
+			// and the window is not being interacted with.
+			"unfocused": 3
+		},
+
+		// Awesomenauts-specific settings.
+		"awesomenauts": {
+
+			// Specify your Awesomenauts installation directory here.
+			// Leave empty to auto-detect game folder.
+			// Important: You MUST use forward slashes (/) instead of backslashes here,
+			//            or else you will encounter a JSON parse error at startup!
+			"gameFolder": "",
+
+			// Specify replay subfolders here, relative to the game's data path.
+			// They will be considered when building the player database.
+			// Change this option only if you use subfolders to organize your replays.
+			"replayFolders": ["Replays"]
+		},
+
+		// Window size on first startup.
+		"initWindowSize": [426, 691],
+
+		// Window background color.
+		"backgroundColor": [15, 29, 38],
+
+		// Settings for player cards.
+		"playerPopups": {
+
+			// Maximum number of cards to display per team.
+			"maxCardCountPerTeam": 3,
+
+			// Size of each player card.
+			"cardSize": [213, 212],
+
+			// Texture size multiplier for text.
+			// Can be increased to make text appear less blurry,
+			// or decreased to make the text edges less jagged.
+			"textResolution": 1.5,
+
+			// Number of seconds before cards disappear automatically.
+			// Set to zero to disable timeout.
+			"timeout": 0,
+
+			// Number of seconds to animate card transitions.
+			"transitionInTime": 0.5,
+			"transitionOutTime": 0.5,
+
+			// If set to true, all player cards will share the same timeout,
+			// generally lengthening their display time.
+			"disappearSimultaneously": true,
+
+			// List of modes that should be displayed sequentially per card.
+			"displayModes": [
+				{
+					"lines": [
+						{
+							"text": "[AccountType]",
+							"size": 12,
+							"color": [200, 200, 200],
+							"offset": [0.0, -5.0],
+							"alignRight": true,
+							"condition": "AccountType"
+						},
+						{
+							"text": "",
+							"size": 5,
+							"color": [255, 255, 255],
+							"offset": [0.0, -12.0],
+							"alignRight": true,
+							"condition": "AccountType"
+						},
+						{
+							"text": "[Name]",
+							"size": 20,
+							"color": [255, 255, 255],
+							"offset": [40.0, 5.0],
+							"alignRight": false,
+							"condition": "Always"
+						},
+						{
+							"text": "aka",
+							"size": 14,
+							"color": [180, 180, 180],
+							"offset": [40.0, 10.0],
+							"alignRight": false,
+							"condition": "CommonName"
+						},
+						{
+							"text": "[CommonName]",
+							"size": 18,
+							"color": [200, 200, 200],
+							"offset": [70.0, -18.0],
+							"alignRight": false,
+							"condition": "CommonName"
+						},
+						{
+							"text": "",
+							"size": 24,
+							"color": [220, 220, 220],
+							"offset": [0.0, 0.0],
+							"alignRight": false,
+							"condition": "!CommonName"
+						},
+						{
+							"text": "Rank:",
+							"size": 17,
+							"color": [200, 200, 200],
+							"offset": [40.0, 10.0],
+							"alignRight": false,
+							"condition": "Always"
+						},
+						{
+							"text": "[#Rank]",
+							"size": 17,
+							"color": [230, 230, 230],
+							"offset": [100.0, -17.0],
+							"alignRight": false,
+							"condition": "Always"
+						},
+						{
+							"text": "Rating:",
+							"size": 16,
+							"color": [200, 200, 200],
+							"offset": [40.0, 0.0],
+							"alignRight": false,
+							"condition": "Always"
+						},
+						{
+							"text": "[Rating]",
+							"size": 16,
+							"color": [220, 220, 220],
+							"offset": [100.0, -16.0],
+							"alignRight": false,
+							"condition": "Always"
+						},
+						{
+							"text": "Main:",
+							"size": 16,
+							"color": [200, 200, 200],
+							"offset": [40.0, 0.0],
+							"alignRight": false,
+							"condition": "Always"
+						},
+						{
+							"text": "[MainNaut]",
+							"size": 16,
+							"color": [230, 230, 230],
+							"offset": [100.0, -16.0],
+							"alignRight": false,
+							"condition": "Always"
+						},
+						{
+							"text": "Win%:",
+							"size": 16,
+							"color": [200, 200, 200],
+							"offset": [40.0, 0.0],
+							"alignRight": false,
+							"condition": "Always"
+						},
+						{
+							"text": "[WinPercent%]",
+							"size": 16,
+							"color": [220, 220, 220],
+							"offset": [100.0, -16.0],
+							"alignRight": false,
+							"condition": "Always"
+						},
+						{
+							"text": "Played with:",
+							"size": 16,
+							"color": [200, 200, 200],
+							"offset": [0.0, 10.0],
+							"alignRight": false,
+							"condition": "Always"
+						},
+						{
+							"text": "[AllyCount] times",
+							"size": 16,
+							"color": [230, 230, 230],
+							"offset": [0.0, -17.0],
+							"alignRight": true,
+							"condition": "Always"
+						},
+						{
+							"text": "Played vs.:",
+							"size": 16,
+							"color": [200, 200, 200],
+							"offset": [0.0, 0.0],
+							"alignRight": false,
+							"condition": "Always"
+						},
+						{
+							"text": "[EnemyCount] times",
+							"size": 16,
+							"color": [230, 230, 230],
+							"offset": [0.0, -16.0],
+							"alignRight": true,
+							"condition": "Always"
+						},
+						{
+							"text": "[Country]",
+							"size": 16,
+							"color": [220, 220, 220],
+							"offset": [40.0, 6.0],
+							"alignRight": false,
+							"condition": "HasCountry"
+						}
+					],
+					"icons": [
+						{
+							"type": "League",
+							"position": [-2.0, -5.0],
+							"size": [40.0, 40.0],
+							"borderThickness": 0.0,
+							"condition": "Always"
+						},
+						{
+							"type": "MainNaut",
+							"position": [1.0, 87.0],
+							"size": [32.0, 32.0],
+							"borderThickness": 0.0,
+							"condition": "Always"
+						},
+						{
+							"type": "Country",
+							"position": [4.0, 174.0],
+							"size": [30.0, 16.0],
+							"borderThickness": 1.5,
+							"condition": "HasCountry"
+						}
+					]
+				}
+			],
+
+			// Controls the colors of player cards.
+			"fillColorRed": [80, 0, 0],
+			"fillColorBlue": [0, 50, 70],
+			"fillColorSelfRed": [100, 0, 0],
+			"fillColorSelfBlue": [0, 70, 90],
+			"outlineColorRed": [225, 0, 0],
+			"outlineColorBlue": [0, 200, 225],
+			"outlineColorSelfRed": [255, 255, 255],
+			"outlineColorSelfBlue": [255, 255, 255],
+			"outlineColorBorder": [0, 0, 0],
+
+			// Adds a vertical gradient to player cards.
+			"gradientIntensityTop": 0.05,
+			"gradientIntensityBottom": 0.25,
+			"gradientColorTop": [0, 0, 0],
+			"gradientColorBottom": [0, 0, 0],
+		},
+		
+		// Settings for rating history display.
+		"ratingHistory":
+		{
+			// Controls whether the rating history is visible.
+			"visible": false,
+
+			// Controls whether the rating history bar is displayed at the top
+			// or the bottom of the RankCheck window.
+			"onTop": false,
+
+			// Controls the relative amount of vertical space allocated
+			// for rating history entries.
+			// Scales with the height of the RankCheck window.
+			"verticalSpace": 0.08,
+
+			// Controls the size of rating history entries.
+			"size": [110, 110],
+
+			// Controls the size of the current rating score display.
+			"scoreSize": [150, 110],
+
+			// Number of seconds before history display disappears automatically.
+			// Set to zero to disable timeout.
+			"timeout": 0,
+
+			// Number of seconds to animate entry transitions.
+			"animationTime": 0.5,
+
+			// Maximum number of past rating values to remember.
+			"bufferSize": 20,
+
+			// Font size of rating history entries.
+			"textSize": 36,
+
+			// Texture size multiplier for text.
+			// Can be increased to make text appear less blurry,
+			// or decreased to make the text edges less jagged.
+			"textResolution": 1.0,
+
+			// Controls the colors of rating history entries.
+			"colors": {
+				"positive": {
+					"textColor": [255, 255, 255],
+					"fillColor": [0, 70, 20],
+					"outlineColor": [0, 220, 45],
+					"borderColor": [0, 0, 0]
+				},
+				"negative": {
+					"textColor": [255, 255, 255],
+					"fillColor": [80, 0, 0],
+					"outlineColor": [225, 0, 0],
+					"borderColor": [0, 0, 0]
+				},
+				"neutral": {
+					"textColor": [255, 255, 255],
+					"fillColor": [40, 40, 40],
+					"outlineColor": [160, 160, 160],
+					"borderColor": [0, 0, 0]
+				},
+				"total": {
+					"textColor": [255, 255, 255],
+					"fillColor": [0, 30, 50],
+					"outlineColor": [0, 150, 175],
+					"borderColor": [0, 0, 0]
+				}
+			}
+		}
+	}
+}
