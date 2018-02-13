@@ -73,6 +73,7 @@ contains options to extract and repack `rankcheck.dat`.
 
 * [SFML](https://sfml-dev.org)
 * [Poco](https://pocoproject.org/)
+* [zlib](https://www.zlib.net/)
 * [PugiXML](https://pugixml.org/) (included)
 * [mingw-std-threads](https://github.com/meganz/mingw-std-threads) (included)
 * [RapidJSON](http://rapidjson.org/) (included)
