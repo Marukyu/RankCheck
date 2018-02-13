@@ -67,6 +67,7 @@ contains options to extract and repack `rankcheck.dat`.
 ## Contributors
 
 * [Marukyu](https://github.com/Marukyu) (main development of RankCheck)
+* [Forty-Bot](https://github.com/Forty-Bot) (bugfixes, [AUR package](https://aur.archlinux.org/packages/rankcheck/))
 
 ## Dependencies
 
