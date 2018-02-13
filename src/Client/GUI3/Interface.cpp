@@ -316,7 +316,8 @@ sf::VideoMode Interface::findGoodVideoMode(sf::Vector2u compare)
 
 	for (unsigned int i = 0; i < modes.size(); ++i)
 	{
-		const int curModeQuality = std::abs(modes[i].width - compare.x) + std::abs(modes[i].height - compare.y)
+		const int curModeQuality = std::abs((int) modes[i].width - (int) compare.x)
+			+ std::abs((int) modes[i].height - (int) compare.y)
 			- modes[i].bitsPerPixel;
 
 		if (curModeQuality < bestModeQuality)

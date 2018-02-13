@@ -3,6 +3,7 @@
 #include <Shared/Config/Config.hpp>
 #include <Shared/Utils/DebugLog.hpp>
 #include <Shared/Utils/StrNumCon.hpp>
+#include <cmath>
 #include <utility>
 
 static cfg::Int cfgMatchStartPos("rankcheck.persistentLogReader.currentOffset");
