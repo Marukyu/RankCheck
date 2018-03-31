@@ -65,13 +65,11 @@ endif()
 
 # Detect and add OpenGL
 find_package(OpenGL REQUIRED)
-include_directories(${OPENGL_INCLUDE_DIRS})
-target_link_libraries(${EXECUTABLE_NAME} ${OPENGL_LIBRARIES})
+target_link_libraries(${EXECUTABLE_NAME} OpenGL::GL)
 
 # Detect and add zlib
 find_package(ZLIB REQUIRED)
-include_directories(${ZLIB_INCLUDE_DIRS})
-target_link_libraries(${EXECUTABLE_NAME} ${ZLIB_LIBRARIES})
+target_link_libraries(${EXECUTABLE_NAME} ZLIB::ZLIB)
 
 # Link POSIX Thread library if necessary
 if(CMAKE_COMPILER_IS_GNUCC)
