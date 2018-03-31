@@ -8,16 +8,8 @@ endif()
 project(RankCheck)
 
 # Detect and enable C++11 support
-include(CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
-CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
-if(COMPILER_SUPPORTS_CXX11)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-elseif(COMPILER_SUPPORTS_CXX0X)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-else()
-	message(STATUS "RankCheck requires C++11, but ${CMAKE_CXX_COMPILER} does not appear to support C++11. Please use a different compiler or update ${CMAKE_CXX_COMPILER}.")
-endif()
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_CXX_STANDARD 11)
 
 include_directories(src)
 
