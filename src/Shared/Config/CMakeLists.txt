@@ -5,3 +5,5 @@ add_library(config
 	"JSONConfig.cpp"
 	"NullConfig.cpp"
 	"Paths.cpp")
+
+target_link_libraries(config rapidjson)

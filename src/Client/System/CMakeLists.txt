@@ -5,4 +5,4 @@ add_library(system
 	"WOSRenderer.cpp"
 	"WOSResourceManager.cpp")
 
-target_link_libraries(system graphics gui3)
+target_link_libraries(system graphics gui3 rapidjson)

@@ -2,7 +2,7 @@
 #define SRC_SHARED_CONFIG_JSONCONFIGSOURCE_HPP_
 
 #include <Shared/Config/ConfigSource.hpp>
-#include <Shared/External/RapidJSON/document.h>
+#include <rapidjson/document.h>
 #include <algorithm>
 #include <cstddef>
 #include <memory>
