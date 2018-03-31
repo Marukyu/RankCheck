@@ -7,9 +7,9 @@
 
 #include <Shared/Utils/OSDetect.hpp>
 #ifdef WOS_WINDOWS
-#include <Shared/External/MinGWThreads/mingw.mutex.h>
-#include <Shared/External/MinGWThreads/mingw.thread.h>
-#include <Shared/External/MinGWThreads/mingw.condition_variable.h>
+#include <Shared/External/mingw-std-threads/mingw.mutex.h>
+#include <Shared/External/mingw-std-threads/mingw.thread.h>
+#include <Shared/External/mingw-std-threads/mingw.condition_variable.h>
 #endif
 
 #endif

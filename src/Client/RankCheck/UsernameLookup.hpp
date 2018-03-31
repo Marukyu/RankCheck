@@ -10,7 +10,7 @@
 #include <string>
 #include <thread>
 #include <vector>
-#include <Shared/External/MinGWThreads/MinGWThreadsAuto.hpp>
+#include <Shared/External/MinGWThreadsAuto.hpp>
 
 namespace sf
 {
