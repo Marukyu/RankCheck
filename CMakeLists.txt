@@ -21,8 +21,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 set(EXECUTABLE_NAME "RankCheck")
 
 include_directories("${CMAKE_SOURCE_DIR}/src")
-add_subdirectory("${CMAKE_SOURCE_DIR}/src")
-add_subdirectory("${CMAKE_SOURCE_DIR}/res")
+add_subdirectory("src")
+add_subdirectory("res")
 
 # Copy resource files
 file(COPY ${RESOURCES} DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

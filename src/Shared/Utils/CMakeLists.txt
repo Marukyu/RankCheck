@@ -14,5 +14,5 @@ add_library(utils
 
 target_link_libraries(utils tinyfiledialogs)
 
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/Debug")
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/Filesystem")
+add_subdirectory("Debug")
+add_subdirectory("Filesystem")

@@ -1,6 +1,6 @@
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/Graphics")
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/GUI3")
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/RankCheck")
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/System")
+add_subdirectory("Graphics")
+add_subdirectory("GUI3")
+add_subdirectory("RankCheck")
+add_subdirectory("System")
 
 set(SOURCES ${SOURCES} PARENT_SCOPE)

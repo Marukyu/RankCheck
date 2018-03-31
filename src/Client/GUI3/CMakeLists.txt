@@ -9,9 +9,9 @@ add_library(gui3
 
 target_link_libraries(gui3 utils)
 
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/Events")
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/Models")
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/Pieces")
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/Rendering")
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/Utils")
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/Widgets")
+add_subdirectory("Events")
+add_subdirectory("Models")
+add_subdirectory("Pieces")
+add_subdirectory("Rendering")
+add_subdirectory("Utils")
+add_subdirectory("Widgets")
