@@ -1,3 +1,2 @@
-set(SOURCES ${SOURCES} 
-	"${CMAKE_CURRENT_SOURCE_DIR}/Package.cpp"
-	PARENT_SCOPE)
+add_library(content
+	"Package.cpp")

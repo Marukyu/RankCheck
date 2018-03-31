@@ -1,17 +1,16 @@
+add_library(utils
+	"Clipboard.cpp"
+	"DataStream.cpp"
+	"DebugLog.cpp"
+	"Error.cpp"
+	"FileChooser.cpp"
+	"FPS.cpp"
+	"Hash.cpp"
+	"StringStream.cpp"
+	"SystemMessage.cpp"
+	"Timer.cpp"
+	"Utilities.cpp"
+	"Zlib.cpp")
+
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/Debug")
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/Filesystem")
-
-set(SOURCES ${SOURCES} 
-	"${CMAKE_CURRENT_SOURCE_DIR}/Clipboard.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/DataStream.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/DebugLog.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/Error.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/FileChooser.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/FPS.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/Hash.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/StringStream.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/SystemMessage.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/Timer.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/Utilities.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/Zlib.cpp"
-	PARENT_SCOPE)

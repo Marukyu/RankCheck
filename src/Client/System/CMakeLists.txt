@@ -1,7 +1,8 @@
-set(SOURCES ${SOURCES} 
-	"${CMAKE_CURRENT_SOURCE_DIR}/WOSApplication.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/WOSInterface.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/WOSMenu.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/WOSRenderer.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/WOSResourceManager.cpp"
-	PARENT_SCOPE)
+add_library(system 
+	"WOSApplication.cpp"
+	"WOSInterface.cpp"
+	"WOSMenu.cpp"
+	"WOSRenderer.cpp"
+	"WOSResourceManager.cpp")
+
+target_link_libraries(system graphics gui3)

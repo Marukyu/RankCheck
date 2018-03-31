@@ -11,6 +11,9 @@ project(RankCheck)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(CMAKE_CXX_STANDARD 11)
 
+# Set executable name
+set(EXECUTABLE_NAME "RankCheck")
+
 include_directories("${CMAKE_SOURCE_DIR}/src")
 add_subdirectory("${CMAKE_SOURCE_DIR}/src")
 add_subdirectory("${CMAKE_SOURCE_DIR}/res")
@@ -32,6 +35,7 @@ endif()
 
 # Define executable
 add_executable(${EXECUTABLE_NAME} ${SOURCES})
+target_link_libraries(${EXECUTABLE_NAME} system config content)
 
 # Add CMake modules
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})

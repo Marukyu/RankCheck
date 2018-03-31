@@ -1,7 +1,6 @@
-set(SOURCES ${SOURCES} 
-	"${CMAKE_CURRENT_SOURCE_DIR}/BitmapText.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/FloatColor.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/GradientRect.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/TexturePacker.cpp"
-	"${CMAKE_CURRENT_SOURCE_DIR}/UtilitiesSf.cpp"
-	PARENT_SCOPE)
+add_library(graphics
+	"BitmapText.cpp"
+	"FloatColor.cpp"
+	"GradientRect.cpp"
+	"TexturePacker.cpp"
+	"UtilitiesSf.cpp")

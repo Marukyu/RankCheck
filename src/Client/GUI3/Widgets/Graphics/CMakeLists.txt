@@ -1,3 +1,2 @@
-set(SOURCES ${SOURCES} 
-	"${CMAKE_CURRENT_SOURCE_DIR}/Gradient.cpp"
-	PARENT_SCOPE)
+target_sources(gui3 PRIVATE
+	"${CMAKE_CURRENT_SOURCE_DIR}/Gradient.cpp")
