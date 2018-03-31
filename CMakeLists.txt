@@ -42,17 +42,13 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 # Detect and add SFML
 find_package(SFML 2.3 REQUIRED graphics window network system)
-if(SFML_FOUND)
-	include_directories(${SFML_INCLUDE_DIR})
-	target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
-endif()
+include_directories(${SFML_INCLUDE_DIR})
+target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 
 # Detect and add Poco
 find_package(Poco REQUIRED)
-if(Poco_FOUND)
-	include_directories(${Poco_INCLUDE_DIRS})
-	target_link_libraries(${EXECUTABLE_NAME} ${Poco_LIBRARIES})
-endif()
+include_directories(${Poco_INCLUDE_DIRS})
+target_link_libraries(${EXECUTABLE_NAME} ${Poco_LIBRARIES})
 
 # MinGW-specific workarounds
 if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
@@ -72,17 +68,13 @@ endif()
 
 # Detect and add OpenGL
 find_package(OpenGL REQUIRED)
-if(OPENGL_FOUND)
-	include_directories(${OPENGL_INCLUDE_DIRS})
-	target_link_libraries(${EXECUTABLE_NAME} ${OPENGL_LIBRARIES})
-endif()
+include_directories(${OPENGL_INCLUDE_DIRS})
+target_link_libraries(${EXECUTABLE_NAME} ${OPENGL_LIBRARIES})
 
 # Detect and add zlib
 find_package(ZLIB REQUIRED)
-if(ZLIB_FOUND)
-    include_directories(${ZLIB_INCLUDE_DIRS})
-    target_link_libraries(${EXECUTABLE_NAME} ${ZLIB_LIBRARIES})
-endif()
+include_directories(${ZLIB_INCLUDE_DIRS})
+target_link_libraries(${EXECUTABLE_NAME} ${ZLIB_LIBRARIES})
 
 # Link POSIX Thread library if necessary
 if(CMAKE_COMPILER_IS_GNUCC)
