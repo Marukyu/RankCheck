@@ -4,6 +4,7 @@ set(SOURCES ${SOURCES}
 	"${CMAKE_CURRENT_SOURCE_DIR}/GameLogReader.cpp"
 	"${CMAKE_CURRENT_SOURCE_DIR}/LeagueReader.cpp"
 	"${CMAKE_CURRENT_SOURCE_DIR}/LogReader.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/MainClient.cpp"
 	"${CMAKE_CURRENT_SOURCE_DIR}/NautsNames.cpp"
 	"${CMAKE_CURRENT_SOURCE_DIR}/NetworkLogReader.cpp"
 	"${CMAKE_CURRENT_SOURCE_DIR}/NetworkLogStartupReader.cpp"
