@@ -1,0 +1,8 @@
+set(SOURCES ${SOURCES} 
+	"${CMAKE_CURRENT_SOURCE_DIR}/ConfigAggregator.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/Config.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/ConfigSource.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/JSONConfig.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/NullConfig.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/Paths.cpp"
+	PARENT_SCOPE)

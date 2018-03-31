@@ -1,0 +1,6 @@
+set(SOURCES ${SOURCES} 
+	"${CMAKE_CURRENT_SOURCE_DIR}/Canvas.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/MouseMonitor.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/NullResourceManager.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/VertexBuffer.cpp"
+	PARENT_SCOPE)
