@@ -25,13 +25,11 @@ set(EXECUTABLE_NAME "RankCheck")
 
 # Add executable icon (Windows-specific)
 if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-
 	# Grab any RC files and attach them to sources list
 	file(GLOB_RECURSE RC_SOURCES "src/*.rc")
 	set(SOURCES ${SOURCES} ${RC_SOURCES})
 
 	set(CMAKE_RC_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE}")
-
 endif()
 
 # Define executable
@@ -52,12 +50,11 @@ target_link_libraries(${EXECUTABLE_NAME} ${Poco_LIBRARIES})
 
 # MinGW-specific workarounds
 if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-
 	# When using static Poco libraries, an additional preprocessor macro must be defined to prevent linking issues on MinGW.
 	if(NOT DEFINED USE_STATIC_POCO_LIBS)
 		set(USE_STATIC_POCO_LIBS false CACHE BOOL "Use static Poco libraries")
 	endif()
-	
+
 	if(USE_STATIC_POCO_LIBS)
 		target_compile_definitions(${EXECUTABLE_NAME} PRIVATE POCO_STATIC)
 	endif()
