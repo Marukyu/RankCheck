@@ -35,7 +35,7 @@ endif()
 
 # Define executable
 add_executable(${EXECUTABLE_NAME} ${SOURCES})
-target_link_libraries(${EXECUTABLE_NAME} system config content rapidjson)
+target_link_libraries(${EXECUTABLE_NAME} system config content rapidjson pugixml)
 
 # Add CMake modules
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})

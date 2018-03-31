@@ -1,6 +1,6 @@
 #include <Client/RankCheck/UsernameLookup.hpp>
 #include <SFML/Network/Http.hpp>
-#include <Shared/External/PugiXML/pugixml.hpp>
+#include <pugixml.hpp>
 #include <Shared/Utils/MakeUnique.hpp>
 #include <Shared/Utils/StrNumCon.hpp>
 #include <algorithm>
