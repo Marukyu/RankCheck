@@ -140,7 +140,7 @@ void WOSApplication::displayError(std::exception& exception, std::string errorDe
 	}
 
 	std::cerr << errorType << ": " << shortError << "\n" << longError << std::endl;
-	SystemMessage::showErrorMessage(errorType, shortError + "\n\nSee rankcheck-error-log.txt for more details");
+	SystemMessage::showErrorMessage(errorType, shortError + "\n\nSee error.log for more details");
 }
 
 void WOSApplication::initCrashHandler()
