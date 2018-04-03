@@ -140,6 +140,8 @@ private:
 	gui3::Ptr<RankCheckWidget> rankCheck;
 
 	std::string applicationConfigFilename;
+	/* Directory to extract assets to when adding/removing menu entries */
+	std::string assetsExtractDirectory;
 };
 
 #endif

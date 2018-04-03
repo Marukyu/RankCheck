@@ -29,7 +29,6 @@
 static const std::string builtinConfigResname = "rankcheck/rankcheck-data.json";
 static const std::string userConfigFilename = "rankcheck.json";
 static const std::string assetsFilename = "rankcheck.dat";
-static const std::string assetsDirectory = "assets";
 
 static cfg::Color backgroundColor("rankcheck.backgroundColor");
 static cfg::Bool showInitialInfo("rankcheck.showInitialInfoMessage");
@@ -45,7 +44,12 @@ WOSApplication::WOSApplication()
 {
 	Poco::Path configDir(Poco::Path::configHome());
 	configDir.pushDirectory("rankcheck");
+
+	Poco::Path dataDir(Poco::Path::dataHome());
+	dataDir.pushDirectory("rankcheck");
+
 	applicationConfigFilename = Poco::Path(configDir, "app.cfg").toString();
+	assetsExtractDirectory = Poco::Path(dataDir, "assets").makeDirectory().toString();
 }
 
 WOSApplication::~WOSApplication()
@@ -437,7 +441,7 @@ void WOSApplication::addDebugMenuEntries()
 		if (dumpAssets())
 		{
 			rankCheck->messageBox("Extraction successful",
-				assetsFilename + " has been extracted to path '" + assetsDirectory + "'.");
+				assetsFilename + " has been extracted to path '" + assetsExtractDirectory + "'.");
 		}
 		else
 		{
@@ -452,7 +456,7 @@ void WOSApplication::addDebugMenuEntries()
 		if (repackAssets())
 		{
 			rankCheck->messageBox("Repack successful",
-				assetsFilename + " has been repacked from path '" + assetsDirectory + "'.");
+				assetsFilename + " has been repacked from path '" + assetsExtractDirectory + "'.");
 		}
 		else
 		{
@@ -571,7 +575,7 @@ bool WOSApplication::dumpAssets()
 
 	while (foundContent)
 	{
-		std::string contentFile = assetsDirectory + "/" + package->getContentId();
+		std::string contentFile = assetsExtractDirectory + "/" + package->getContentId();
 		createDirectories(removeFileName(contentFile));
 
 		DataStream outStream;
@@ -592,13 +596,13 @@ bool WOSApplication::dumpAssets()
 
 bool WOSApplication::repackAssets()
 {
-	if (!isDirectory(assetsDirectory))
+	if (!isDirectory(assetsExtractDirectory))
 	{
-		debug() << "Assets directory '" << assetsDirectory << "' is missing or not a directory.";
+		debug() << "Assets directory '" << assetsExtractDirectory << "' is missing or not a directory.";
 		return false;
 	}
 
-	if (!Package::compile(assetsDirectory, assetsFilename, StringStream::Cout))
+	if (!Package::compile(assetsExtractDirectory, assetsFilename, StringStream::Cout))
 	{
 		debug() << "An error occurred during package compilation.";
 		return false;
