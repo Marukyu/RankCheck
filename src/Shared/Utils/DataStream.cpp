@@ -1,11 +1,13 @@
 #include "Shared/Utils/DataStream.hpp"
-#include "Shared/Utils/Endian.hpp"
 #include <iostream>
 #include <fstream>
 #include <limits>
-#include "Shared/Utils/Zlib.hpp"
-#include "Shared/Utils/StrNumCon.hpp"
+#include <Poco/File.h>
+#include <Poco/Path.h>
+#include "Shared/Utils/Endian.hpp"
 #include "Shared/Utils/MakeUnique.hpp"
+#include "Shared/Utils/StrNumCon.hpp"
+#include "Shared/Utils/Zlib.hpp"
 
 const DataStream::SizeType DataStream::maxFileBufferSize = 4096;
 
@@ -136,6 +138,15 @@ bool DataStream::openOutFile(std::string filename, bool buffered)
 	close();
 
 	myFileName = filename;
+
+	/* Try to create all parent directories before opening the file */
+	try {
+		Poco::File(Poco::Path(filename).setFileName("")).createDirectories();
+	} catch (...) {
+		/* Ideally we'd want to do something more with this error,
+		 * but this function just returns a boolean */
+		return false;
+	}
 	myFile->open(filename.c_str(), std::ios::binary | std::ios::out | std::ios::in | std::ios::trunc);
 
 	if (!*myFile)
