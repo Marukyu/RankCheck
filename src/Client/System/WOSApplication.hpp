@@ -138,6 +138,8 @@ private:
 	gui3::Ptr<gui3::Button> menuButton;
 	gui3::Ptr<gui3::SettingsPanel> settingsPanel;
 	gui3::Ptr<RankCheckWidget> rankCheck;
+
+	std::string applicationConfigFilename;
 };
 
 #endif

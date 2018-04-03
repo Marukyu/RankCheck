@@ -4,6 +4,7 @@
 #include <Client/System/WOSApplication.hpp>
 #include <Client/System/WOSInterface.hpp>
 #include <Client/System/WOSResourceManager.hpp>
+#include <Poco/Path.h>
 #include <SFML/Graphics/Color.hpp>
 #include <SFML/Graphics/Image.hpp>
 #include <Shared/Config/CompositeTypes.hpp>
@@ -27,7 +28,6 @@
 
 static const std::string builtinConfigResname = "rankcheck/rankcheck-data.json";
 static const std::string userConfigFilename = "rankcheck.json";
-static const std::string applicationConfigFilename = "rankcheck.cfg";
 static const std::string assetsFilename = "rankcheck.dat";
 static const std::string assetsDirectory = "assets";
 
@@ -43,6 +43,9 @@ static cfg::Float unfocusedFrameRate("rankcheck.framerate.unfocused");
 
 WOSApplication::WOSApplication()
 {
+	Poco::Path configDir(Poco::Path::configHome());
+	configDir.pushDirectory("rankcheck");
+	applicationConfigFilename = Poco::Path(configDir, "app.cfg").toString();
 }
 
 WOSApplication::~WOSApplication()
