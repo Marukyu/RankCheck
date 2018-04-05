@@ -22,7 +22,7 @@ add_executable(${EXECUTABLE_NAME}
 # Add executable icon (Windows-specific)
 if(WIN32)
 	# Grab any the rc file and attach it to the sources
-	target_sources(${EXECUTABLE_NAME} "WinRes.rc")
+	target_sources(${EXECUTABLE_NAME} PRIVATE "WinRes.rc")
 
 	set(CMAKE_RC_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE}")
 endif()
