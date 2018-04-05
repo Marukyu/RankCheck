@@ -35,7 +35,7 @@ include_directories(${SFML_INCLUDE_DIR})
 target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 
 # Detect and add Poco
-find_package(Poco REQUIRED)
+find_package(Poco 1.9 REQUIRED Foundation)
 include_directories(${Poco_INCLUDE_DIRS})
 target_link_libraries(${EXECUTABLE_NAME} ${Poco_LIBRARIES})
 
