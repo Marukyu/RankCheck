@@ -7,6 +7,8 @@ endif()
 
 project(RankCheck)
 
+set(BUILD_SHARED_LIBS FALSE)
+
 # Add CMake modules
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
