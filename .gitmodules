@@ -9,4 +9,4 @@
 	url = https://github.com/Tencent/rapidjson.git
 [submodule "src/Shared/External/tinyfiledialogs"]
 	path = src/Shared/External/tinyfiledialogs
-	url = https://github.com/native-toolkit/tinyfiledialogs.git
+	url = https://github.com/Forty-Bot/tinyfiledialogs.git
