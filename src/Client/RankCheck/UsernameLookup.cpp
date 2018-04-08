@@ -1,11 +1,16 @@
+#include <Client/RankCheck/LeagueReader.hpp>
 #include <Client/RankCheck/UsernameLookup.hpp>
 #include <SFML/Network/Http.hpp>
-#include <Shared/External/PugiXML/pugixml.hpp>
+#include <SFML/System/Time.hpp>
+#include <Shared/Config/DataTypes.hpp>
+#include <Shared/Config/JSONConfig.hpp>
+#include <Shared/Utils/DebugLog.hpp>
 #include <Shared/Utils/MakeUnique.hpp>
 #include <Shared/Utils/StrNumCon.hpp>
 #include <algorithm>
-#include <iostream>
+#include <exception>
 #include <iterator>
+#include <utility>
 
 UsernameLookup::UsernameLookup()
 {
@@ -17,6 +22,18 @@ UsernameLookup::~UsernameLookup()
 	{
 		conn->thread.join();
 	}
+}
+
+void UsernameLookup::setHost(std::string host, unsigned short port)
+{
+	this->host = host;
+	this->port = port;
+}
+
+void UsernameLookup::setUriParameters(std::string prefix, std::string suffix)
+{
+	uriPrefix = prefix;
+	uriSuffix = suffix;
 }
 
 void UsernameLookup::lookup(sf::Uint64 steamID, Callback callback)
@@ -36,13 +53,13 @@ void UsernameLookup::lookup(sf::Uint64 steamID, Callback callback)
 	conn->steamID = steamID;
 	Connection * connPtr = conn.get();
 
-	conn->thread = std::thread([connPtr]()
+	conn->thread = std::thread([this,connPtr]()
 	{
 		sf::Http http;
-		http.setHost("http://steamcommunity.com");
+		http.setHost(host, port);
 
 		sf::Http::Request request;
-		request.setUri("profiles/" + cNtoS(connPtr->steamID) + "?xml=1");
+		request.setUri(uriPrefix + cNtoS(connPtr->steamID) + uriSuffix);
 
 		sf::Http::Response response = http.sendRequest(request);
 		connPtr->result = parseResponse(response.getBody());
@@ -90,13 +107,18 @@ std::string UsernameLookup::parseResponse(const std::string& response)
 {
 	static const std::string unknown = "[unknown]";
 
-	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_buffer(response.data(), response.size());
-
-	if (!result)
+	cfg::JSONConfig config;
+	try
 	{
+		config.loadFromString(response);
+	}
+	catch (std::exception & e)
+	{
+		debug() << e.what();
 		return unknown;
 	}
 
-	return doc.root().child("profile").child("steamID").text().as_string(unknown.c_str());
+	std::string name = config.readValue("result[0].username").content;
+
+	return name.empty() ? unknown : name;
 }
