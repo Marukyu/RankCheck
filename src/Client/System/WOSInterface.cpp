@@ -10,7 +10,7 @@ static cfg::Vector2f windowSizeCfg("rankcheck.initWindowSize");
 WOSInterface::WOSInterface(WOSApplication * parentApplication) :
 	gui3::Interface(parentApplication)
 {
-	setTitle("RankCheck v1.5");
+	setTitle("RankCheck v1.5.1");
 
 	myRenderer.setWhitePixel(parentApplication->getWhitePixel());
 	myRenderer.setConfig(&parentApplication->getConfig());

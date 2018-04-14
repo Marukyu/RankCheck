@@ -25,6 +25,9 @@ public:
 
 	using Callback = std::function<void(std::string)>;
 
+	void setHost(std::string host, unsigned short port);
+	void setUriParameters(std::string prefix, std::string suffix);
+
 	void lookup(sf::Uint64 steamID, Callback callback);
 	std::string getCachedName(sf::Uint64 steamID) const;
 	void process();
@@ -47,6 +50,12 @@ private:
 		std::string name;
 		Countdown timer;
 	};
+
+	std::string host;
+	unsigned short port;
+	std::string uriPrefix;
+	std::string uriSuffix;
+
 	std::map<sf::Uint64, CacheEntry> cache;
 	std::vector<std::unique_ptr<Connection> > connections;
 };
