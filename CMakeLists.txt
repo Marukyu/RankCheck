@@ -22,6 +22,16 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 # Set executable name
 set(EXECUTABLE_NAME "RankCheck")
 
+find_package(SFML 2.3 REQUIRED graphics window network system)
+include_directories(${SFML_INCLUDE_DIR})
+
+find_package(Poco 1.9 REQUIRED Foundation)
+include_directories(${Poco_INCLUDE_DIRS})
+
+find_package(OpenGL REQUIRED)
+
+find_package(ZLIB REQUIRED)
+
 include_directories("${CMAKE_SOURCE_DIR}/src")
 add_subdirectory("src")
 add_subdirectory("res")

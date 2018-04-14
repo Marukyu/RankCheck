@@ -13,6 +13,7 @@ add_library(utils
 	"Zlib.cpp")
 
 target_link_libraries(utils tinyfiledialogs)
+target_link_libraries(utils ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} ${Poco_LIBRARIES} ZLIB::ZLIB)
 
 add_subdirectory("Debug")
 add_subdirectory("Filesystem")

@@ -27,17 +27,7 @@ if(WIN32)
 	set(CMAKE_RC_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE}")
 endif()
 
-target_link_libraries(${EXECUTABLE_NAME} system config content rapidjson pugixml)
-
-# Detect and add SFML
-find_package(SFML 2.3 REQUIRED graphics window network system)
-include_directories(${SFML_INCLUDE_DIR})
-target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
-
-# Detect and add Poco
-find_package(Poco 1.9 REQUIRED Foundation)
-include_directories(${Poco_INCLUDE_DIRS})
-target_link_libraries(${EXECUTABLE_NAME} ${Poco_LIBRARIES})
+target_link_libraries(${EXECUTABLE_NAME} system config content pugixml)
 
 # MinGW-specific workarounds
 if(MINGW)
@@ -53,14 +43,6 @@ if(MINGW)
 	# Link MinGW-specific dependencies.
 	target_link_libraries(${EXECUTABLE_NAME} iphlpapi)
 endif()
-
-# Detect and add OpenGL
-find_package(OpenGL REQUIRED)
-target_link_libraries(${EXECUTABLE_NAME} OpenGL::GL)
-
-# Detect and add zlib
-find_package(ZLIB REQUIRED)
-target_link_libraries(${EXECUTABLE_NAME} ZLIB::ZLIB)
 
 # Link POSIX Thread library if necessary
 if(CMAKE_COMPILER_IS_GNUCC)

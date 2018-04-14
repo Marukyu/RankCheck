@@ -4,3 +4,5 @@ add_library(graphics
 	"GradientRect.cpp"
 	"TexturePacker.cpp"
 	"UtilitiesSf.cpp")
+
+target_link_libraries(graphics ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} OpenGL::GL)

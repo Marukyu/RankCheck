@@ -8,6 +8,7 @@ add_library(gui3
 	"Widget.cpp")
 
 target_link_libraries(gui3 utils)
+target_link_libraries(gui3 ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 
 add_subdirectory("Events")
 add_subdirectory("Models")
