@@ -209,6 +209,11 @@ void RankCheckWidget::handleConfigChange()
 	static cfg::String lbUriSeparator("rankcheck.servers.leaderboard.separator");
 	static cfg::String lbUriSuffix("rankcheck.servers.leaderboard.uriSuffix");
 
+	static cfg::String nameHost("rankcheck.servers.username.host");
+	static cfg::Int namePort("rankcheck.servers.username.port");
+	static cfg::String nameUriPrefix("rankcheck.servers.username.uriPrefix");
+	static cfg::String nameUriSuffix("rankcheck.servers.username.uriSuffix");
+
 	static cfg::String ctryHost("rankcheck.servers.country.host");
 	static cfg::Int ctryPort("rankcheck.servers.country.port");
 	static cfg::String ctryUriPrefix("rankcheck.servers.country.uriPrefix");
@@ -236,6 +241,8 @@ void RankCheckWidget::handleConfigChange()
 	LeagueReader::getInstance().initWithConfig(config());
 	checker.setHost(config().get(lbHost), config().get(lbPort));
 	checker.setUriParameters(config().get(lbUriPrefix), config().get(lbUriSeparator), config().get(lbUriSuffix));
+	usernameLookup.setHost(config().get(nameHost), config().get(namePort));
+	usernameLookup.setUriParameters(config().get(nameUriPrefix), config().get(nameUriSuffix));
 	countryLookup.setHost(config().get(ctryHost), config().get(ctryPort));
 	countryLookup.setUriParameters(config().get(ctryUriPrefix), config().get(ctryUriSuffix));
 	replayWatcher.initWithConfig(config());
