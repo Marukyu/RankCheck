@@ -86,6 +86,7 @@ public:
 
 private:
 
+	std::string DB_FILENAME;
 	std::map<sf::Uint64, EntryV2> entries;
 	std::unordered_set<ReplayParser::ReplayInfo::Hash> replayHashes;
 };

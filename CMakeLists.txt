@@ -56,7 +56,7 @@ if(SFML_FOUND)
 endif()
 
 # Detect and add Poco
-find_package(Poco REQUIRED)
+find_package(Poco 1.9 REQUIRED)
 if(Poco_FOUND)
 	include_directories(${Poco_INCLUDE_DIRS})
 	target_link_libraries(${EXECUTABLE_NAME} ${Poco_LIBRARIES})
