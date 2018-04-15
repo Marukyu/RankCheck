@@ -100,8 +100,6 @@ private:
 	private:
 
 		virtual void onRepaint(Canvas & canvas) override;
-
-		Window * myWindow;
 	};
 
 	class ResizeOverlay : public Widget
