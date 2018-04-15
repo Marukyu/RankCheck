@@ -182,11 +182,11 @@ std::string WOSResourceManager::normalizeResourceName(std::string resourceName) 
 {
 	if (resourceName.empty() || resourceName[0] == '$')
 	{
-		return std::move(resourceName);
+		return resourceName;
 	}
 
 	// TODO: normalize name.
-	return std::move(resourceName);
+	return resourceName;
 }
 
 const sf::Texture* WOSResourceManager::getTexture(std::size_t page) const

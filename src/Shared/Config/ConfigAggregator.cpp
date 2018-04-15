@@ -100,7 +100,7 @@ Value ConfigAggregator::readValue(std::string key) const
 		Value value = entry.config->readValue(key);
 		if (value.type != Value::Type::Missing)
 		{
-			return std::move(value);
+			return value;
 		}
 	}
 

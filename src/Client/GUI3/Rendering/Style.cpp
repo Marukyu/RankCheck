@@ -137,19 +137,19 @@ CombinedStyle operator+(Style style1, CombinedStyle style2)
 {
 	CombinedStyle resultStyle(style1);
 	resultStyle.add(std::move(style2));
-	return std::move(resultStyle);
+	return resultStyle;
 }
 
 CombinedStyle operator+(CombinedStyle style1, Style style2)
 {
 	style1.add(style2);
-	return std::move(style1);
+	return style1;
 }
 
 CombinedStyle operator+(CombinedStyle style1, CombinedStyle style2)
 {
 	style1.add(std::move(style2));
-	return std::move(style1);
+	return style1;
 }
 
 CombinedStyle & operator+=(CombinedStyle & style1, Style style2)
