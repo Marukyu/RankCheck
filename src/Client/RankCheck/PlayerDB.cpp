@@ -1,4 +1,5 @@
 #include <Client/RankCheck/PlayerDB.hpp>
+#include <Poco/Path.h>
 #include <Shared/Utils/DataStream.hpp>
 #include <Shared/Utils/Error.hpp>
 #include <Shared/Utils/StrNumCon.hpp>
@@ -39,6 +40,9 @@ void PlayerDB::EntryV0::addName(const std::string& name)
 
 PlayerDB::PlayerDB()
 {
+	Poco::Path dir(Poco::Path::cacheHome());
+	dir.pushDirectory("rankcheck");
+	DB_FILENAME = Poco::Path(dir, "players.db").toString();
 }
 
 PlayerDB::~PlayerDB()
@@ -46,7 +50,6 @@ PlayerDB::~PlayerDB()
 }
 
 static constexpr sf::Int32 HEADER = 1333337;
-static const std::string & DB_FILENAME = "rankcheck-players.db";
 
 void PlayerDB::load()
 {

@@ -4,6 +4,7 @@
 #include <Client/System/WOSApplication.hpp>
 #include <Client/System/WOSInterface.hpp>
 #include <Client/System/WOSResourceManager.hpp>
+#include <Poco/Path.h>
 #include <SFML/Graphics/Color.hpp>
 #include <SFML/Graphics/Image.hpp>
 #include <Shared/Config/CompositeTypes.hpp>
@@ -27,9 +28,7 @@
 
 static const std::string builtinConfigResname = "rankcheck/rankcheck-data.json";
 static const std::string userConfigFilename = "rankcheck.json";
-static const std::string applicationConfigFilename = "rankcheck.cfg";
 static const std::string assetsFilename = "rankcheck.dat";
-static const std::string assetsDirectory = "assets";
 
 static cfg::Color backgroundColor("rankcheck.backgroundColor");
 static cfg::Bool showInitialInfo("rankcheck.showInitialInfoMessage");
@@ -43,6 +42,14 @@ static cfg::Float unfocusedFrameRate("rankcheck.framerate.unfocused");
 
 WOSApplication::WOSApplication()
 {
+	Poco::Path configDir(Poco::Path::configHome());
+	configDir.pushDirectory("rankcheck");
+
+	Poco::Path dataDir(Poco::Path::dataHome());
+	dataDir.pushDirectory("rankcheck");
+
+	applicationConfigFilename = Poco::Path(configDir, "app.cfg").toString();
+	assetsExtractDirectory = Poco::Path(dataDir, "assets").makeDirectory().toString();
 }
 
 WOSApplication::~WOSApplication()
@@ -140,7 +147,7 @@ void WOSApplication::displayError(std::exception& exception, std::string errorDe
 	}
 
 	std::cerr << errorType << ": " << shortError << "\n" << longError << std::endl;
-	SystemMessage::showErrorMessage(errorType, shortError + "\n\nSee rankcheck-error-log.txt for more details");
+	SystemMessage::showErrorMessage(errorType, shortError + "\n\nSee error.log for more details");
 }
 
 void WOSApplication::initCrashHandler()
@@ -434,7 +441,7 @@ void WOSApplication::addDebugMenuEntries()
 		if (dumpAssets())
 		{
 			rankCheck->messageBox("Extraction successful",
-				assetsFilename + " has been extracted to path '" + assetsDirectory + "'.");
+				assetsFilename + " has been extracted to path '" + assetsExtractDirectory + "'.");
 		}
 		else
 		{
@@ -449,7 +456,7 @@ void WOSApplication::addDebugMenuEntries()
 		if (repackAssets())
 		{
 			rankCheck->messageBox("Repack successful",
-				assetsFilename + " has been repacked from path '" + assetsDirectory + "'.");
+				assetsFilename + " has been repacked from path '" + assetsExtractDirectory + "'.");
 		}
 		else
 		{
@@ -568,7 +575,7 @@ bool WOSApplication::dumpAssets()
 
 	while (foundContent)
 	{
-		std::string contentFile = assetsDirectory + "/" + package->getContentId();
+		std::string contentFile = assetsExtractDirectory + "/" + package->getContentId();
 		createDirectories(removeFileName(contentFile));
 
 		DataStream outStream;
@@ -589,13 +596,13 @@ bool WOSApplication::dumpAssets()
 
 bool WOSApplication::repackAssets()
 {
-	if (!isDirectory(assetsDirectory))
+	if (!isDirectory(assetsExtractDirectory))
 	{
-		debug() << "Assets directory '" << assetsDirectory << "' is missing or not a directory.";
+		debug() << "Assets directory '" << assetsExtractDirectory << "' is missing or not a directory.";
 		return false;
 	}
 
-	if (!Package::compile(assetsDirectory, assetsFilename, StringStream::Cout))
+	if (!Package::compile(assetsExtractDirectory, assetsFilename, StringStream::Cout))
 	{
 		debug() << "An error occurred during package compilation.";
 		return false;

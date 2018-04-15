@@ -207,24 +207,6 @@ bool Package::openFile(const std::string & filename)
 	}
 }
 
-/*
- bool Package::openString(const std::string & str)
- {
- close();
-
- if (!myStream.openMemory(str.data(), str.size()))
- return false;
-
- if (checkHeader())
- return true;
- else
- {
- close();
- return false;
- }
- }
- */
-
 void Package::close()
 {
 	myContentCount = 0;
