@@ -139,9 +139,9 @@ public:
 
 protected:
 
-	void onInit();
-	void onMove();
-	void onResize();
+	void onInit() override;
+	void onMove() override;
+	void onResize() override;
 
 private:
 
