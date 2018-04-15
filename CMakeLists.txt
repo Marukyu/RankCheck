@@ -30,6 +30,11 @@ else()
 	message(WARNING "Could not set the warning level (unknown compiler)")
 endif()
 
+find_program(CCACHE_FOUND "ccache")
+if(CCACHE_FOUND)
+	set(CMAKE_CXX_COMPILER_LAUNCHER "ccache")
+endif()
+
 # Set executable output path
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
