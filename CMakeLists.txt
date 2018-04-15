@@ -16,6 +16,20 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(CMAKE_CXX_STANDARD 11)
 
+if(MSVC)
+	# Use W4 and not Wall because apparently the standard library emits a large amount of warnings
+	# cf. https://stackoverflow.com/questions/4001736/whats-up-with-the-thousands-of-warnings-in-standard-headers-in-msvc-wall#4001759
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4 /Wd4100")
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+	# -Weverything is unused for similar reasons as above
+	# Many of the warnings are stylistic, or superfluous (e.g. complaining about c++98 compat when we have --std=gnu++11)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wno-unused-parameter")
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -Wno-unused-parameter")
+else()
+	message(WARNING "Could not set the warning level (unknown compiler)")
+endif()
+
 # Set executable output path
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
