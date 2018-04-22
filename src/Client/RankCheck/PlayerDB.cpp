@@ -40,7 +40,7 @@ void PlayerDB::EntryV0::addName(const std::string& name)
 
 PlayerDB::PlayerDB()
 {
-	Poco::Path dir(Poco::Path::cacheHome());
+	Poco::Path dir(Poco::Path::dataHome());
 	dir.pushDirectory("rankcheck");
 	DB_FILENAME = Poco::Path(dir, "players.db").toString();
 }
