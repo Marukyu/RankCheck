@@ -27,6 +27,18 @@ include_directories(${SFML_INCLUDE_DIR})
 
 find_package(Poco 1.9 REQUIRED Foundation)
 include_directories(${Poco_INCLUDE_DIRS})
+if(MINGW)
+	# When using static Poco libraries, an additional preprocessor macro must be defined to prevent linking issues on MinGW.
+	if(NOT DEFINED USE_STATIC_POCO_LIBS)
+		set(USE_STATIC_POCO_LIBS false CACHE BOOL "Use static Poco libraries")
+	endif()
+
+	if(USE_STATIC_POCO_LIBS)
+		foreach(library IN ${POCO_libraries})
+			target_compile_definitions(${library} INTERFACE POCO_STATIC)
+		endforeach()
+	endif()
+endif()
 
 find_package(OpenGL REQUIRED)
 
