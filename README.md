@@ -50,11 +50,13 @@ Clone this repository using Git and use [CMake](https://cmake.org) to build Rank
 ```sh
 git clone https://github.com/Marukyu/RankCheck.git
 cd RankCheck
-cmake .
+mkdir build
+cd build
+cmake ..
 make
 ```
 
-Library and header files for [SFML 2.3 or newer](https://sfml-dev.org) and [Poco Foundation 1.7.3 or 
+Library and header files for [SFML 2.3 or newer](https://sfml-dev.org) and [Poco Foundation 1.9 or
 newer](https://pocoproject.org/), as well as their respective dependencies, must be installed.
 
 A C++11 compliant compiler such as GCC 5 or newer is required to build RankCheck. Visual Studio has not been tested.
@@ -67,7 +69,9 @@ contains options to extract and repack `rankcheck.dat`.
 ## Contributors
 
 * [Marukyu](https://github.com/Marukyu) (main development of RankCheck)
-* [Forty-Bot](https://github.com/Forty-Bot) (bugfixes, [AUR package](https://aur.archlinux.org/packages/rankcheck/))
+* [Forty-Bot](https://github.com/Forty-Bot) (complete build system overhaul, data storage reworks, bugfixes,
+[AUR package](https://aur.archlinux.org/packages/rankcheck/))
+* [Blatoy](https://github.com/Blatoy) (username back-end)
 
 ## Dependencies
 
