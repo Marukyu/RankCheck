@@ -1,4 +1,4 @@
-#include <Shared/External/TinyFileDialogs/tinyfiledialogs.h>
+#include <Shared/External/tinyfiledialogs/tinyfiledialogs.h>
 #include <Shared/Utils/FileChooser.hpp>
 #include <Shared/Utils/Utilities.hpp>
 #include <cstdbool>

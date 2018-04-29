@@ -5,6 +5,7 @@
 #include <Shared/Config/DataTypes.hpp>
 #include <Shared/Config/JSONConfig.hpp>
 #include <Shared/Utils/DebugLog.hpp>
+#include <pugixml.hpp>
 #include <Shared/Utils/MakeUnique.hpp>
 #include <Shared/Utils/StrNumCon.hpp>
 #include <algorithm>

@@ -1,6 +1,6 @@
 #include <Client/RankCheck/NautsNames.hpp>
 #include <Client/RankCheck/ReplayParser.hpp>
-#include <Shared/External/PugiXML/pugixml.hpp>
+#include <pugixml.hpp>
 #include <Shared/Utils/DataStream.hpp>
 #include <Shared/Utils/DebugLog.hpp>
 #include <Shared/Utils/StrNumCon.hpp>

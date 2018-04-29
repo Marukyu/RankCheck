@@ -1,0 +1,8 @@
+target_sources(gui3 PRIVATE
+	"${CMAKE_CURRENT_SOURCE_DIR}/Button.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/Checkbox.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/Menu.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/Slider.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/Table.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/Text.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/TextField.cpp")
