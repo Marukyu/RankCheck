@@ -15,7 +15,9 @@
 #include <SFML/Config.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/System/Clock.hpp>
-#include <Shared/External/MinGWThreadsAuto.hpp>
+#include <mutex>
+#include <thread>
+#include <condition_variable>
 #include <Shared/Utils/FileChooser.hpp>
 #include <Shared/Utils/Timer.hpp>
 #include <atomic>

@@ -1,6 +1,3 @@
-[submodule "src/Shared/External/mingw-std-threads"]
-	path = src/Shared/External/mingw-std-threads
-	url = https://github.com/meganz/mingw-std-threads
 [submodule "src/Shared/External/pugixml"]
 	path = src/Shared/External/pugixml
 	url = https://github.com/zeux/pugixml

@@ -9,7 +9,9 @@
 #include <string>
 #include <thread>
 #include <vector>
-#include <Shared/External/MinGWThreadsAuto.hpp>
+#include <mutex>
+#include <thread>
+#include <condition_variable>
 
 class CountryLookup
 {
