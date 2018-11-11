@@ -34,7 +34,7 @@ public:
 	virtual std::size_t getRowCount() const override;
 
 	void setColumnName(std::size_t column, std::string name);
-	virtual std::string getColumnName(std::size_t column) const;
+	virtual std::string getColumnName(std::size_t column) const override;
 
 	virtual float getRowYPosition(std::size_t row) const override;
 	virtual float getRowHeight(std::size_t row) const override;

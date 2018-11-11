@@ -13,7 +13,7 @@
 #include <cstddef>
 #include <string>
 
-class BitmapFont;
+struct BitmapFont;
 
 namespace gui3
 {

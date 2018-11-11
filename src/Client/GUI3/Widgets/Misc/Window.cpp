@@ -408,8 +408,7 @@ void Window::Titlebar::updateWindowParent()
 	}
 }
 
-Window::Background::Background(Window * window) :
-	myWindow(window)
+Window::Background::Background(Window * window)
 {
 }
 

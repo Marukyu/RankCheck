@@ -352,29 +352,6 @@ std::string BitmapText::formatPrefix()
 
 std::string BitmapText::formatCode(FormatCode code)
 {
-	enum FormatCode
-	{
-		White,
-		Red,
-		Yellow,
-		Green,
-		Cyan,
-		Blue,
-		Pink,
-		LightGray,
-		Gray,
-		DarkRed,
-		DarkYellow,
-		DarkGreen,
-		DarkCyan,
-		DarkBlue,
-		DarkPink,
-		DarkGray,
-		Italic,
-		Bold,
-		ResetColor,
-		ResetAll
-	};
 	std::string r = formatPrefix();
 	switch (code)
 	{

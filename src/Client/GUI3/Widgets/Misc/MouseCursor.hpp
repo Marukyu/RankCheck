@@ -39,7 +39,7 @@ private:
 	sf::FloatRect getCursorRect() const;
 
 	virtual void onRepaint(Canvas & canvas) override;
-	virtual void onRender(sf::RenderTarget& target, sf::RenderStates states) const;
+	virtual void onRender(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 	sf::Vector2f myMousePosition;
 	Ptr<res::Image> myImage;

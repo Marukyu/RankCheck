@@ -107,7 +107,7 @@ std::vector<BoxSetting> initBoxSettings()
 		settings.emplace_back(flag.first, flag.second);
 	}
 
-	return std::move(settings);
+	return settings;
 }
 
 }
