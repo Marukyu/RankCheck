@@ -119,6 +119,12 @@ void Checkbox::updateConfigValues()
 	float buttonGap = config().get(configButtonGap);
 
 	myText->setResizeFunction(Piece::generateResizeFunction(buttonSize.x + buttonGap, 0, 0, 0));
+
+	myButton->setResizeFunction([buttonSize](sf::Vector2f size)
+	{
+		sf::Vector2f boxSize(buttonSize.x, size.y);
+		return sf::FloatRect((boxSize - buttonSize) / 2.f, buttonSize);
+	});
 }
 
 }
