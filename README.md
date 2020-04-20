@@ -50,6 +50,7 @@ Clone this repository using Git and use [CMake](https://cmake.org) to build Rank
 ```sh
 git clone https://github.com/Marukyu/RankCheck.git
 cd RankCheck
+git pull --recurse-submodules
 mkdir build
 cd build
 cmake ..
