@@ -2,7 +2,7 @@
 
 Automatic leaderboard lookup tool for Awesomenauts.
 
-**[Download the latest release here!](https://rankcheck.marukyu.de/)**
+**[Download the latest release here!](https://github.com/Marukyu/RankCheck/releases/)**
 
 RankCheck can be run alongside Awesomenauts and detects when a match begins. Leaderboard information for all players in
 the match is automatically requested from a web server and displayed in the RankCheck window. It replaces the process
@@ -26,7 +26,7 @@ on their Awesomenauts streams.
 
 ## Installation
 
-You can download the latest release from the [RankCheck website](https://rankcheck.marukyu.de/).
+You can download the latest version from the [releases page](https://github.com/Marukyu/RankCheck/releases/).
 
 ### Windows
 
@@ -79,13 +79,12 @@ contains options to extract and repack `rankcheck.dat`.
 * [Poco](https://pocoproject.org/)
 * [zlib](https://www.zlib.net/)
 * [PugiXML](https://pugixml.org/) (included)
-* [mingw-std-threads](https://github.com/meganz/mingw-std-threads) (included)
 * [RapidJSON](http://rapidjson.org/) (included)
 * [Tiny File Dialogs](https://sourceforge.net/projects/tinyfiledialogs/) (included)
 
 ## License (MIT License)
 
-Copyright (c) 2018 Marukyu
+Copyright (c) 2020 Marukyu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation the 
